@@ -2,21 +2,21 @@ import ibm_db
 import oct_login
 import oct_config
 import snowflake.connector
-#sf_qa_user='ifsnlgbpmq'
-sf_prd_user='ifsnlgbpmp'
+#sf_qa_user='test'
+sf_prd_user='test'
 edw_prd_user=oct_config.user_id
 #sf_con_qa = snowflake.connector.connect(
 #    user=sf_qa_user,
 #    password=oct_login.sfq,
-#    account='cloudtestdev.us-east-1'
+#    account='clouddev.us-east-1'
 #)
 sf_con_prd = snowflake.connector.connect(
-    user='ifsnlgbpmp',
+    user='test',
     password=oct_login.sfp,
-    account='cloudtestprod.us-east-1'
+    account='cloudprod.us-east-1'
 )
-connection_edw = ibm_db.connect('DATABASE=edw_prod;'
-                                'HOSTNAME=edw_ibm_prod;'
+connection_edw = ibm_db.connect('DATABASE=analytics_prod;'
+                                'HOSTNAME=analytics_host_prod;'
                                 'PORT=4700;'
                                 'PROTOCOL=TCPIP;'
                                 'UID='+edw_prd_user+';'
